@@ -1,0 +1,15 @@
+{
+	"name": "Python 3",
+	"image": "mcr.microsoft.com/devcontainers/anaconda:3",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.analysis.typeCheckingMode": "basic"
+			},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"ms-python.python"
+			]
+		}
+	}
+}

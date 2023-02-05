@@ -8,7 +8,12 @@
 			},
 			"extensions": [
 				"streetsidesoftware.code-spell-checker",
-				"ms-python.python"
+				"ms-python.python",
+				"GitHub.copilot",
+				"mechatroner.rainbow-csv",
+				"ms-toolsai.jupyter",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples"
 			]
 		}
 	},

@@ -2,3 +2,5 @@ bicon
 pandas
 ipykernel
 networkx==2.8.8
+mygene
+openpyxl

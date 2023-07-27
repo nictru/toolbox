@@ -9,6 +9,8 @@ def directory_to_json(path):
     # Check if path is a directory
     if not os.path.isdir(path):
         raise ValueError(f"Path {path} is not a directory.")
+    
+    print(f"Converting directory {os.path.abspath(path)} to JSON object.")
 
     # Get all files in directory
     files = os.listdir(path)

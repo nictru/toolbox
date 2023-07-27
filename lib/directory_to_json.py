@@ -13,30 +13,21 @@ def directory_to_json(path):
     print(f"Converting directory {os.path.abspath(path)} to JSON object.")
 
     # Get all files in directory
-    files = os.listdir(path)
+    elements = os.listdir(path)
 
     # Remove hidden files
-    files = [file for file in files if not file.startswith(".")]
+    elements = [file for file in elements if not file.startswith(".")]
+    directories = [file for file in elements if os.path.isdir(os.path.join(path, file))]
+    files = [file for file in elements if os.path.isfile(os.path.join(path, file))]
 
     # Create JSON object
     json_object = {}
 
-    # Iterate over files
-    for file in files:
-        # Get file path
-        file_path = os.path.join(path, file)
+    # Add directories to JSON object
+    for directory in directories:
+        json_object[directory] = directory_to_json(os.path.join(path, directory))
 
-        # Check if file is a directory
-        if os.path.isdir(file_path):
-            # Recursively call directory_to_json
-            json_object[file] = directory_to_json(file_path)
-        else:
-            # Read file content
-            with open(file_path, "r") as f:
-                content = f.read()
-
-            # Add file content to JSON object
-            json_object[file] = content
+    json_object["files"] = files
 
     return json_object
 

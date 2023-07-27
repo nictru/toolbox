@@ -20,6 +20,9 @@ def directory_to_json(path):
     directories = [file for file in elements if os.path.isdir(os.path.join(path, file))]
     files = [file for file in elements if os.path.isfile(os.path.join(path, file))]
 
+    if not len(directories) > 0:
+        return files
+
     # Create JSON object
     json_object = {}
 
@@ -27,7 +30,8 @@ def directory_to_json(path):
     for directory in directories:
         json_object[directory] = directory_to_json(os.path.join(path, directory))
 
-    json_object["files"] = files
+    if files:
+        json_object["files"] = files
 
     return json_object
 
